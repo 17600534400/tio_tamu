@@ -82,6 +82,7 @@ public class ShowcaseWsMsgHandler implements IWsMsgHandler {
 		int count = Tio.getAll(channelContext.tioConfig).getObj().size();
 
 		String msg = "{name:'admin',message:'" + name+"于"+simpleDateFormat.format(System.currentTimeMillis())+ " 进来了，共【" + count + "】人在线" + "'}";
+		log.info("message:", msg);
 		//用tio-websocket，服务器发送到客户端的Packet都是WsResponse
 		WsResponse wsResponse = WsResponse.fromText(msg, ShowcaseServerConfig.CHARSET);
 		//群发
